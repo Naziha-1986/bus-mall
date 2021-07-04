@@ -7,16 +7,16 @@ let secondImEl = document.getElementById('secondIm');
 let thirdImEl = document.getElementById('thirdIm');
 let ulEl = document.getElementById('results');
 
- let products = [];
-// let attempts = 1;
-// let maxAttempts = 25;
+let products = [];
+let attempts = 1;
+let maxAttempts = 25;
 
 
 // create object
 function ProductImage(Name) {
     // split image from the path
     this.pName = Name.split('.')[0];
-    this.img = 'img/' + Name;
+    this.img = 'images/' + Name;
     this.vote = 0;
     this.view = 0;
     products.push(this);
@@ -32,25 +32,44 @@ let productImages = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg', 'bres
 for (let i = 0; i < productImages.length; i++) {
     new ProductImage(productImages[i]);
 }
-// random index(0-1)
+// random index(0-18)
+
 function randomIndex() {
     return Math.floor(Math.random() * products.length);
 }
-function renderRandomImg(){
+
+let firstIndex;
+let secondIndex;
+let thirdIndex;
+
+function renderRandomImg() {
+
+    let firstIndex = randomIndex();
+    let secondIndex = randomIndex();
+    let thirdIndex = randomIndex();
+    while (firstIndex === secondIndex || firstIndex === thirdIndex) {
+        firstIndex = randomIndex();
 
 
-    firstImEl.setAttribute('scr', products[0].img);
-    secondImEl.setAttribute('scr', products[1].img);
-    thirdImEl.setAttribute('scr', products[2].img);
 
-    // firstImEl.setAttribute('alt', products[ firstIndex].pName);
-    // secondImEl.setAttribute('alt', products[secondIndex].pName);
-    // thirdImEl.setAttribute('alt', products[thirdIndex].pName);
+    }
 
 
-    // products[firstIndex].view++;
-    // products[secondIndex].view++;
-    // products[thirdIndex].view++;
+
+
+
+    firstImEl.setAttribute('scr', products[firstIndex].img);
+    secondImEl.setAttribute('scr', products[secondIndex].img);
+    thirdImEl.setAttribute('scr', products[thirdIndex].img);
+
+    firstImEl.setAttribute('alt', products[firstIndex].pName);
+    secondImEl.setAttribute('alt', products[secondIndex].pName);
+    thirdImEl.setAttribute('alt', products[thirdIndex].pName);
+
+
+     products[firstIndex].view++;
+     products[secondIndex].view++;
+     products[thirdIndex].view++;
 
 
 }
