@@ -1,4 +1,18 @@
-div{
-    border: 23px red;
+*{
     box-sizing: border-box;
 }
+
+
+img {
+    display: inline-block;
+    width: 150px;
+    float: left;
+    height: 150px;
+    border: 2px solid rgb(35, 83, 97);
+    padding: 1%;
+    margin-right: 10%;
+
+  }
+  #container{
+      margin-left: 10%;
+  }

@@ -59,9 +59,9 @@ function renderRandomImg() {
 
 
 
-    firstImEl.setAttribute('scr', products[firstIndex].img);
-    secondImEl.setAttribute('scr', products[secondIndex].img);
-    thirdImEl.setAttribute('scr', products[thirdIndex].img);
+    firstImEl.setAttribute('src', products[firstIndex].img);
+    secondImEl.setAttribute('src', products[secondIndex].img);
+    thirdImEl.setAttribute('src', products[thirdIndex].img);
 
     firstImEl.setAttribute('alt', products[firstIndex].pName);
     secondImEl.setAttribute('alt', products[secondIndex].pName);
@@ -74,6 +74,8 @@ function renderRandomImg() {
 
 
 }
+
+renderRandomImg();
 
 
 
