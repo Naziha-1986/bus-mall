@@ -2,7 +2,11 @@
     box-sizing: border-box;
 }
 
-
+p{
+    text-align: center;
+    font-size: 30px;
+    color: sienna;
+}
 img {
     display: inline-block;
     width: 150px;
@@ -14,5 +18,12 @@ img {
 
   }
   #container{
-      margin-left: 10%;
+      margin-left: 20%;
   }
+  #results{
+      clear: both;
+      padding: 3%;
+      color: rgb(35, 83, 97);
+  }
+
+ 

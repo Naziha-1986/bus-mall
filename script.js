@@ -51,8 +51,12 @@ function renderRandomImg() {
     firstIndex = randomIndex();
      secondIndex = randomIndex();
      thirdIndex = randomIndex();
-    while (firstIndex === secondIndex || firstIndex === thirdIndex) {
+
+    while (firstIndex === secondIndex ||firstIndex === thirdIndex) {
         firstIndex = randomIndex();
+    }
+    while (secondIndex === firstIndex ||secondIndex === thirdIndex) {
+        secondIndex = randomIndex();
     }
 
 
@@ -79,6 +83,10 @@ renderRandomImg();
 
 
 
+
+
+
+
 // lab12 add chart
 
 function chartRender(){
@@ -86,7 +94,8 @@ let ctx = document.getElementById('myChart').getContext('2d');
 let myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['views'],
+        labels:['votes'],
         datasets: [{
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
