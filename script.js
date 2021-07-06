@@ -10,23 +10,27 @@ let ulEl = document.getElementById('results');
 let products = [];
 let attempts = 1;
 let maxAttempts = 25;
-
+let productNames = [];
+let votes = [];
+let views = [];
 
 
 // create object
 function ProductImage(Name) {
+
     // split image from the path
     this.pName = Name.split('.')[0];
     this.img = 'img/' + Name;
     this.votes = 0;
     this.views = 0;
     products.push(this);
+    productNames.push(this.pName)
 
 }
 
 
 // array for 19 images
-let productImages =['bag.jpg','banana.jpg','bathroom.jpg','boots.jpg','breakfast.jpg','bubblegum.jpg','chair.jpg','cthulhu.jpg','dog-duck.jpg','dragon.jpg','pen.jpg','pet-sweep.jpg','scissors.jpg','shark.jpg','sweep.png','tauntaun.jpg','unicorn.jpg','water-can.jpg','wine-glass.jpg'];
+let productImages = ['bag.jpg', 'banana.jpg', 'bathroom.jpg', 'boots.jpg', 'breakfast.jpg', 'bubblegum.jpg', 'chair.jpg', 'cthulhu.jpg', 'dog-duck.jpg', 'dragon.jpg', 'pen.jpg', 'pet-sweep.jpg', 'scissors.jpg', 'shark.jpg', 'sweep.png', 'tauntaun.jpg', 'unicorn.jpg', 'water-can.jpg', 'wine-glass.jpg'];
 
 // put images inside function
 
@@ -47,15 +51,19 @@ let secondIndex;
 let thirdIndex;
 
 function renderRandomImg() {
+    // products.textContent = '';
+
+
+
 
     firstIndex = randomIndex();
-     secondIndex = randomIndex();
-     thirdIndex = randomIndex();
+    secondIndex = randomIndex();
+    thirdIndex = randomIndex();
 
-    while (firstIndex === secondIndex ||firstIndex === thirdIndex) {
+    while (firstIndex === secondIndex || firstIndex === thirdIndex) {
         firstIndex = randomIndex();
     }
-    while (secondIndex === firstIndex ||secondIndex === thirdIndex) {
+    while (secondIndex === firstIndex || secondIndex === thirdIndex) {
         secondIndex = randomIndex();
     }
 
@@ -72,10 +80,7 @@ function renderRandomImg() {
     thirdImEl.setAttribute('alt', products[thirdIndex].pName);
 
 
-    products[firstIndex].views++;
-    products[secondIndex].views++;
-    products[thirdIndex].views++;
-
+   
 
 }
 
@@ -84,49 +89,63 @@ renderRandomImg();
 
 
 
+firstImEl.addEventListener('click', handleClick);
+secondImEl.addEventListener('click', handleClick);
+thirdImEl.addEventListener('click', handleClick);
 
-
-
-// lab12 add chart
-
-function chartRender(){
-let ctx = document.getElementById('myChart').getContext('2d');
-let myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['views'],
-        labels:['votes'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
+function handleClick(event) {
+    if (attempts <= maxAttempts) {
+        let clickedImg = event.target.id;
+        if (clickedImg === 'firstIm') {
+            products[firstIndex].votes++;
         }
-    }
-});
+        else if (clickedImg === 'secondIm') {
+            products[secondIndex].votes++;
 
+        } else if (clickedImg === 'thirdIm') {
+            products[thirdIndex].votes++;
+        }
+        renderRandomImg();
+    } else {
+        let ulEl = document.getElementById('results');
+        
+
+
+        firstImEl.removeEventListener('click', handleClick);
+        secondImEl.removeEventListener('click', handleClick);
+        thirdImEl.removeEventListener('click', handleClick);
+        chartRender();
+    }
+    attempts++;
+
+
+    // create local storage :lab 12
+
+
+
+    fillLocalStorage();
+    console.log(fillLocalStorage);
+
+    // // 2.convert string into object
+    function readLocalStorage() {
+        let stringObject = localStorage.setItem('products');
+        let normalObject = JSON.parse(stringObject);
+        if (normalObject !== null) {
+            products = normalObject;
+            renderRandomImg();
+            
+        }
+
+    }
+    readLocalStorage();
 }
 
-chartRender();
+
+
+
+
+
+
+
+
+

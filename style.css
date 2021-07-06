@@ -5,16 +5,18 @@
 p{
     text-align: center;
     font-size: 30px;
-    color: sienna;
+    color: rgb(18, 97, 25);
+    background-color: rgb(223, 108, 152);
 }
 img {
     display: inline-block;
-    width: 150px;
+    width: 200px;
     float: left;
-    height: 150px;
+    height: 200px;
     border: 2px solid rgb(35, 83, 97);
     padding: 1%;
     margin-right: 10%;
+    background-color: rgb(27, 160, 71);
 
   }
   #container{
@@ -22,8 +24,16 @@ img {
   }
   #results{
       clear: both;
-      padding: 3%;
+      /* padding: 3%; */
       color: rgb(35, 83, 97);
+     background-color: rgb(201, 152, 201);
+     font-size: 22px;
   }
-
- 
+body{
+    background-image: url(https://th.bing.com/th/id/OIP.TvWlb_jEfm_zVCWX94JkcAHaEo?pid=ImgDet&rs=1) ;
+    
+    
+}
+#myChart{
+    background-color: rgb(235, 190, 173);
+}
