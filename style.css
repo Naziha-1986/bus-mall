@@ -1,4 +1,4 @@
-*{
+/* *{
     box-sizing: border-box;
 }
 
@@ -25,7 +25,7 @@ img {
   #results{
       clear: both;
       /* padding: 3%; */
-      color: rgb(35, 83, 97);
+      /* color: rgb(35, 83, 97);
      background-color: rgb(201, 152, 201);
      font-size: 22px;
   }
@@ -36,4 +36,4 @@ body{
 }
 #myChart{
     background-color: rgb(235, 190, 173);
-}
+} */ */

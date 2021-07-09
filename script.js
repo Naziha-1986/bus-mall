@@ -123,22 +123,22 @@ function handleClick(event) {
 
 
 
-    fillLocalStorage();
-    console.log(fillLocalStorage);
+//     fillLocalStorage();
+//     console.log(fillLocalStorage);
 
-    // // 2.convert string into object
-    function readLocalStorage() {
-        let stringObject = localStorage.setItem('products');
-        let normalObject = JSON.parse(stringObject);
-        if (normalObject !== null) {
-            products = normalObject;
-            renderRandomImg();
+//     // // 2.convert string into object
+//     function readLocalStorage() {
+//         let stringObject = localStorage.setItem('products');
+//         let normalObject = JSON.parse(stringObject);
+//         if (normalObject !== null) {
+//             products = normalObject;
+//             renderRandomImg();
             
-        }
+//         }
 
-    }
-    readLocalStorage();
-}
+//     }
+//     readLocalStorage();
+ }
 
 
 
