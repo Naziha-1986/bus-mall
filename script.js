@@ -118,30 +118,7 @@ function handleClick(event) {
     }
     attempts++;
 
-
-    // create local storage :lab 12
-
-
-
-//     fillLocalStorage();
-//     console.log(fillLocalStorage);
-
-//     // // 2.convert string into object
-//     function readLocalStorage() {
-//         let stringObject = localStorage.setItem('products');
-//         let normalObject = JSON.parse(stringObject);
-//         if (normalObject !== null) {
-//             products = normalObject;
-//             renderRandomImg();
-            
-//         }
-
-//     }
-//     readLocalStorage();
- }
-
-
-
+}
 
 
 
