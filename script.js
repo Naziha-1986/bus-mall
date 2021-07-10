@@ -114,7 +114,7 @@ function handleClick(event) {
         firstImEl.removeEventListener('click', handleClick);
         secondImEl.removeEventListener('click', handleClick);
         thirdImEl.removeEventListener('click', handleClick);
-        chartRender();
+      
     }
     attempts++;
 
